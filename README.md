@@ -14,10 +14,10 @@ setrise("北海道")
 と都道府県名を入力すればOK
 
 
-#なお、手動の場合は
+なお、手動の場合は
 
 
-#setrise("北海道", now=FALSE, mtime = c("2020-02-15"))
+setrise("北海道", now=FALSE, mtime = c("2020-02-15"))
 
 
-#のように、now=FALSEにして、mtime=で年月日えお入力
+のように、now=FALSEにして、mtime=で年月日えお入力
