@@ -9,4 +9,5 @@ setrise関数
 　source("https://raw.githubusercontent.com/dipperGit/setrise/br1/setrise.R", encoding="UTF-8")
 　
  setrise("北海道")
+ 
 　と都道府県名を入力すればOK
