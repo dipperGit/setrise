@@ -4,10 +4,11 @@ setrise関数
 
 ・使い方
 
-　以下を実行した後、
+以下を実行した後、
  
-　source("https://raw.githubusercontent.com/dipperGit/setrise/br1/setrise.R", encoding="UTF-8")
-　
- setrise("北海道")
+source("https://raw.githubusercontent.com/dipperGit/setrise/br1/setrise.R", encoding="UTF-8")
+
+
+setrise("北海道")
  
-　と都道府県名を入力すればOK
+と都道府県名を入力すればOK
