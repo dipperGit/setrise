@@ -1,5 +1,5 @@
 
-setrise <- function(loc, now){
+setrise <- function(loc, now = TRUE, mtime){
 #setrise関数 20220325
 #都道府県名を入力すれば、実行日前後日の出日の入り時刻を計算できる。
 
@@ -10,6 +10,9 @@ setrise <- function(loc, now){
 #setrise("北海道")
 #と都道府県名を入力すればOK
 
+#なお、手動の場合は
+#setrise("北海道", now=FALSE, mtime = c("2020-03-25"))
+#のように、now=FALSEにして、mtime=で年月日えお入力
   
 #都道府県ごとの緯度経度入力
 pref <- c("北海道","青森県","岩手県","宮城県","秋田県","山形県", "福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県", "鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県", "沖縄県" )
@@ -27,7 +30,11 @@ source("https://raw.githubusercontent.com/dipperGit/pkgch/br1/pkgch.R", encoding
 invisible( capture.output(pkgch("suncalc")))
 
 #現在時刻を入力
-now <- Sys.Date()
+if(now == TRUE){
+now2 <- Sys.Date()
+}else {
+  now2 <- as.Date(mtime)
+}
 #手動の場合は、
 #now <- as.POSIXct("2022-03-25")
 #のように書く。
@@ -36,7 +43,7 @@ now <- Sys.Date()
 tar <- df[df$pref == loc,]
 
 #場所から日の出日の入り時間を計算
-time <- getSunlightTimes(date=now, lat = tar$lat[1], lon = tar$lon[1], tz="JAPAN" )
+time <- getSunlightTimes(date=now2, lat = tar$lat[1], lon = tar$lon[1], tz="JAPAN" )
 
 #時間だけを引き抜けるように加工
 time$dsunset <- as.character(time$sunset)
@@ -46,6 +53,6 @@ time$dsunrise <- as.character(time$sunrise)
 time$dsunrise <- substring(time$dsunrise, nchar(time$dsunrise)-7, nchar(time$dsunrise))
 
 #結果を表示
-cat(paste(now, "の", as.factor(tar$pref), "の", "\n","日の出時間は", time$dsunrise, "\n", "日の入り時間は", time$dsunset, "です。", sep="" ) )
+cat(paste(now2, "の", as.factor(tar$pref), "の", "\n","日の出時間は", time$dsunrise, "\n", "日の入り時間は", time$dsunset, "です。", sep="" ) )
 
 }#おわりんこ
