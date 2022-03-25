@@ -1,4 +1,6 @@
-#setrise関数
+
+setrise <- function(loc){
+#setrise関数 20220325
 #都道府県名を入力すれば、実行日前後日の出日の入り時刻を計算できる。
 
 #調査や釣りなどに活躍！（?）
@@ -22,8 +24,17 @@ now <- Sys.Date()
 #loc <- "北海道"
 tar <- df[df$pref == loc,]
 
+#場所から日の出日の入り時間を計算
 time <- getSunlightTimes(date=now, lat = tar$lat[1], lon = tar$lon[1], tz="JAPAN" )
-time$tday <- 
 
+#時間だけを引き抜けるように加工
+time$dsunset <- as.character(time$sunset)
+time$dsunset <- substring(time$dsunset, nchar(time$dsunset)-7, nchar(time$dsunset))
 
-cat(paste( now, "の", as.factor(tar$pref), "の", "\n","日の出時間は", time$sunrise, "\n", "日の入り時間は", time$sunset, "です。", sep="" ) )
+time$dsunrise <- as.character(time$sunrise)
+time$dsunrise <- substring(time$dsunrise, nchar(time$dsunrise)-7, nchar(time$dsunrise))
+
+#結果を表示
+cat(paste( now, "の", as.factor(tar$pref), "の", "\n","日の出時間は", time$dsunrise, "\n", "日の入り時間は", time$dsunset, "です。", sep="" ) )
+
+}#おわりんこ
