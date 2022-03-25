@@ -20,4 +20,4 @@ setrise("北海道")
 setrise("北海道", now=FALSE, mtime = c("2020-02-15"))
 
 
-のように、now=FALSEにして、mtime=で年月日えお入力
+のように、now=FALSEにして、mtime=で年月日を入力
