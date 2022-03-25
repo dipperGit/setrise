@@ -1,0 +1,5 @@
+df <- read.csv("prefList.csv", fileEncoding="CP932")
+fix(df)
+fixed(df)
+fix(df$pref)
+fix(df)
