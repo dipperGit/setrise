@@ -45,7 +45,7 @@ tar <- df[df$pref == loc,]
 #場所から日の出日の入り時間を計算
 time <- getSunlightTimes(date=now2, lat = tar$lat[1], lon = tar$lon[1], tz="JAPAN" )
 
-#時間だけを引き抜けるように加工
+#時間だけを引き抜けるように加工 
 time$dsunset <- as.character(time$sunset)
 time$dsunset <- substring(time$dsunset, nchar(time$dsunset)-7, nchar(time$dsunset))
 
