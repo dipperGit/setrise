@@ -56,3 +56,5 @@ time$dsunrise <- substring(time$dsunrise, nchar(time$dsunrise)-7, nchar(time$dsu
 cat(paste(now2, "の", as.factor(tar$pref), "の", "\n","日の出時間は", time$dsunrise, "\n", "日の入り時間は", time$dsunset, "です。", sep="" ) )
 
 }#おわりんこ
+
+
