@@ -1,5 +1,5 @@
 
-setrise <- function(loc){
+setrise <- function(loc, now){
 #setrise関数 20220325
 #都道府県名を入力すれば、実行日前後日の出日の入り時刻を計算できる。
 
