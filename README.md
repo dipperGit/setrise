@@ -11,7 +11,7 @@ source("https://raw.githubusercontent.com/dipperGit/setrise/br1/setrise.R", enco
 
 setrise("北海道")
  
-と都道府県名を入力すればOK
+と都道府県名を入力すればOK。都府県の場合はちゃんと"新潟県"のように表記しないとNA表記されます。
 
 
 なお、手動の場合は
